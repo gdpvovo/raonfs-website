@@ -1,0 +1,69 @@
+# 라온에프에스 — 가비아 웹호스팅(Apache)용 설정
+# 모든 지시문은 <IfModule>로 감쌌습니다. 해당 모듈이 없는 서버에서는
+# 오류 없이 그냥 무시되므로 안전합니다.
+
+# ---------- 기본 문서 / 인코딩 ----------
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+# ---------- 압축 전송 ----------
+# CSS 39KB, HTML 42KB, JS 11KB가 대략 1/4로 줄어듭니다.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/ld+json image/svg+xml
+</IfModule>
+
+# ---------- 캐시 ----------
+# 이미지와 PDF는 바뀌지 않으므로 길게, HTML은 짧게 잡습니다.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType application/pdf         "access plus 1 month"
+  ExpiresByType text/css                "access plus 1 week"
+  ExpiresByType application/javascript  "access plus 1 week"
+  ExpiresByType text/html               "access plus 10 minutes"
+</IfModule>
+
+# ---------- MIME ----------
+<IfModule mod_mime.c>
+  AddType application/pdf .pdf
+  AddType image/svg+xml .svg
+</IfModule>
+
+# ---------- 디렉터리 목록 차단 ----------
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
+# ---------- 설계 문서 비공개 ----------
+<FilesMatch "^(DESIGN\.md|.*\.json)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+
+# =========================================================
+#  아래 블록은 SSL(https)이 켜진 것을 확인한 뒤에 주석을 푸세요.
+#  SSL 적용 전에 켜면 무한 리다이렉트가 발생합니다.
+#
+#  사이트의 canonical / og:url이 https://www.raongr.com/ 이므로,
+#  최종적으로는 이 규칙이 켜져 있어야 주소가 하나로 모입니다.
+# =========================================================
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#
+#   # http -> https
+#   RewriteCond %{HTTPS} !=on
+#   RewriteRule ^(.*)$ https://www.raongr.com/$1 [R=301,L]
+#
+#   # raongr.com -> www.raongr.com
+#   RewriteCond %{HTTP_HOST} !^www\. [NC]
+#   RewriteRule ^(.*)$ https://www.raongr.com/$1 [R=301,L]
+# </IfModule>

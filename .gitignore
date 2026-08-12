@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+._*
+
+# 에디터
+.vscode/
+.idea/
+*.swp
+
+# 배포용 압축본 (필요할 때 다시 만들면 됩니다)
+*.zip

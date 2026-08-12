@@ -1,0 +1,77 @@
+# 라온에프에스 — Netlify 설정
+# 빌드 과정이 없는 정적 사이트라 publish 경로만 지정합니다.
+
+[build]
+  publish = "."
+
+# ---------- 보안 헤더 ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# ---------- 캐시 ----------
+# 파일명에 해시가 없으므로(style.css는 계속 style.css) 캐시를 너무 길게 잡으면
+# 수정해도 방문자 화면이 안 바뀝니다. 아래는 "고쳐도 하루 안에 반영"되는 값입니다.
+
+# HTML은 항상 최신을 받아야 메뉴·문구 수정이 즉시 보입니다.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# 로고·지도·시스템 사진은 잘 바뀌지 않습니다.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# 인증서와 지명원은 갱신될 수 있으니 더 짧게 잡습니다.
+# (ISO 인증서를 실제로 한 번 교체했습니다)
+[[headers]]
+  for = "/assets/certificates/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/assets/raonfs-company-profile.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ---------- 설계 문서 비공개 ----------
+# 저장소에는 두되 사이트로는 내보내지 않습니다.
+# (.htaccess의 차단 규칙은 Netlify에서 동작하지 않으므로 여기서 다시 막습니다)
+[[redirects]]
+  from = "/DESIGN.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.impeccable/*"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.htaccess"
+  to = "/"
+  status = 404
+  force = true
+
+# 참고: www / https 리다이렉트는 여기에 쓰지 않습니다.
+# Netlify의 Domain management에서 www.raongr.com을 Primary domain으로
+# 지정하면 apex(raongr.com) -> www 리다이렉트와 HTTPS 강제가 자동 적용됩니다.
+# 여기에 중복 규칙을 넣으면 서로 충돌할 수 있습니다.
