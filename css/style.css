@@ -512,6 +512,35 @@ button { font: inherit; cursor: pointer; }
 .cert-open::after { content: ''; position: absolute; inset: 0; }
 .cert-card-linked:hover .cert-open { color: var(--color-accent-strong); }
 .cert-open:focus-visible { outline: none; }
+
+/* ---------- System spec trigger + modal ---------- */
+.spec-open {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: var(--space-3); padding: 0;
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+  color: var(--color-accent);
+  transition: color .2s var(--ease);
+}
+.spec-open svg { width: 17px; height: 17px; }
+.spec-open:hover { color: var(--color-accent-strong); }
+
+.lightbox-panel-spec { width: min(760px, 100%); height: auto; max-height: min(90vh, 880px); }
+
+.spec-body { flex: 1 1 0; min-height: 0; overflow-y: auto; padding: var(--space-4); }
+.spec-sheet { display: grid; grid-template-columns: minmax(0, 240px) 1fr; gap: var(--space-4); align-items: start; }
+.spec-photo { background: var(--color-muted-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
+.spec-photo img { display: block; width: 100%; height: auto; }
+
+.spec-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.spec-table th, .spec-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+.spec-table th { width: 110px; font-weight: 600; color: var(--color-muted-fg); background: var(--color-muted-bg); }
+.spec-table td { color: var(--color-primary); }
+
+@media (max-width: 640px) {
+  .lightbox-panel-spec { height: 100%; max-height: 100vh; max-height: 100dvh; }
+  .spec-sheet { grid-template-columns: 1fr; }
+}
 .cert-card-linked:focus-within {
   border-color: var(--color-accent);
   outline: 2px solid var(--color-accent); outline-offset: 3px;
@@ -803,7 +832,7 @@ body.is-locked { overflow: hidden; }
 /* 회사지명원 is routinely printed or saved as PDF — the full record has to survive it. */
 @media print {
   .site-header, .nav-toggle, .filters, .hero-actions,
-  .works-foot, .cert-open, .skip-link, .lightbox,
+  .works-foot, .cert-open, .spec-open, .skip-link, .lightbox,
   .callbar, .nav-backdrop { display: none !important; }
 
   .js .reveal { opacity: 1 !important; transform: none !important; }

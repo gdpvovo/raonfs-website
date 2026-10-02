@@ -296,6 +296,82 @@
     });
   }
 
+  /* ---- System spec lightbox ---- */
+  var specTriggers = Array.prototype.slice.call(document.querySelectorAll('.spec-open'));
+  var specLightbox = document.getElementById('specLightbox');
+
+  if (specTriggers.length && specLightbox) {
+    var specPanel = specLightbox.querySelector('.lightbox-panel');
+    var specBody = document.getElementById('specBody');
+    var specTitle = document.getElementById('specTitle');
+    var specClose = document.getElementById('specClose');
+
+    var specLastFocused = null;
+    var specOutside = [document.getElementById('siteHeader'), document.getElementById('main'), document.querySelector('.site-footer'), document.getElementById('certLightbox')];
+
+    function setSpecOutsideInert(on) {
+      specOutside.forEach(function (el) {
+        if (!el) return;
+        if (on) el.setAttribute('inert', '');
+        else el.removeAttribute('inert');
+      });
+    }
+
+    function openSpecLightbox(trigger) {
+      var template = document.getElementById(trigger.dataset.spec);
+      if (!template) return;
+
+      specLastFocused = document.activeElement;
+      specBody.innerHTML = '';
+      specBody.appendChild(template.content.cloneNode(true));
+      specTitle.textContent = trigger.dataset.title || '제품 사양';
+
+      specLightbox.hidden = false;
+      setSpecOutsideInert(true);
+      document.body.classList.add('is-locked');
+      specClose.focus();
+    }
+
+    function closeSpecLightbox() {
+      specLightbox.hidden = true;
+      specBody.innerHTML = '';
+      setSpecOutsideInert(false);
+      document.body.classList.remove('is-locked');
+      if (specLastFocused && specLastFocused.focus) specLastFocused.focus();
+    }
+
+    specTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () { openSpecLightbox(trigger); });
+    });
+
+    specClose.addEventListener('click', closeSpecLightbox);
+
+    specLightbox.addEventListener('click', function (e) {
+      if (e.target.hasAttribute('data-close')) closeSpecLightbox();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (specLightbox.hidden) return;
+
+      if (e.key === 'Escape') { closeSpecLightbox(); return; }
+
+      if (e.key === 'Tab') {
+        var focusable = specPanel.querySelectorAll('a[href], button:not([disabled])');
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
+
   /* ---- Footer year ---- */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
