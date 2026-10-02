@@ -382,12 +382,21 @@
     <div class="container">
       <header class="section-head reveal">
         <h2 class="section-title">취급 시스템 <span class="en">Systems</span></h2>
-        <p class="section-desc">검증된 글로벌 화재감지 시스템과 동파방지 솔루션을 기반으로 설계와 시공을 진행합니다.</p>
+        <p class="section-desc">검증된 글로벌 화재감지 시스템부터 수신반·감지기·유도등까지, 분야별로 취급 제품을 확인하실 수 있습니다.</p>
       </header>
 
-      <h3 class="system-group-title">해외 브랜드</h3>
-      <div class="systems">
-        <article class="system-card">
+      <!-- radiogroup, not toggle buttons: the filters are mutually exclusive. -->
+      <div class="filters reveal" role="radiogroup" aria-label="취급 시스템 분야 필터">
+        <button class="chip is-active" data-filter="all">전체</button>
+        <button class="chip" data-filter="panel">수신반 · 전원</button>
+        <button class="chip" data-filter="detector">감지기</button>
+        <button class="chip" data-filter="freeze">동파방지</button>
+        <button class="chip" data-filter="exit">LED 유도등</button>
+        <button class="chip" data-filter="local">로컬 기기</button>
+      </div>
+
+      <div class="systems" id="systemsBody">
+        <article class="system-card" data-cat="panel">
           <div class="system-media">
             <img src="assets/simplex-4100es.jpg" alt="Simplex 4100ES 화재수신기 캐비닛" width="296" height="649" loading="lazy" decoding="async">
           </div>
@@ -406,7 +415,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/vesda.jpg" alt="VESDA 공기흡입형 연기 감지기 제품군" width="575" height="255" loading="lazy" decoding="async">
           </div>
@@ -424,11 +433,8 @@
             </button>
           </div>
         </article>
-      </div>
 
-      <h3 class="system-group-title">국내 브랜드</h3>
-      <div class="systems">
-        <article class="system-card">
+        <article class="system-card" data-cat="freeze">
           <div class="system-media">
             <img src="assets/metalheater-fps-at200.jpg" alt="메탈히터 FPS-AT-200 동파방지 히터" width="340" height="600" loading="lazy" decoding="async">
           </div>
@@ -448,7 +454,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/bem-4pa.jpg" alt="성화플러스 BEST ASSD BEM-4PA 공기흡입형 감지기" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -467,7 +473,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="panel">
           <div class="system-media">
             <img src="assets/fs-people-sp-gr10-1000.jpg" alt="FS&amp;PEOPLE 화재수신기 SP-GR1.0_1000" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -486,7 +492,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="panel">
           <div class="system-media">
             <img src="assets/fs-people-sp-rs10.jpg" alt="FS&amp;PEOPLE 중계반 SP-RS1.0" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -505,7 +511,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="panel">
           <div class="system-media">
             <img src="assets/fs-people-sp-r10-4l-4circuit.jpg" alt="FS&amp;PEOPLE 중계기 SP-R1.0-4L" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -528,7 +534,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="panel">
           <div class="system-media">
             <img src="assets/fs-people-sp-ps15a.jpg" alt="FS&amp;PEOPLE 비상전원반 SP-PS15A" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -547,7 +553,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/fs-people-sp-ass10.jpg" alt="FS&amp;PEOPLE 아날로그 연기식감지기 SP-ASS1.0" width="640" height="630" loading="lazy" decoding="async">
           </div>
@@ -561,7 +567,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/fs-people-sp-ash10.jpg" alt="FS&amp;PEOPLE 아날로그 열식감지기 SP-ASH1.0" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -575,7 +581,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/fs-people-fs-shr10.jpg" alt="FS&amp;PEOPLE 차동식 감지기 FS-SHR10" width="640" height="588" loading="lazy" decoding="async">
           </div>
@@ -589,7 +595,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/fs-people-fs-shf10.jpg" alt="FS&amp;PEOPLE 정온식 감지기 FS-SHF10" width="640" height="635" loading="lazy" decoding="async">
           </div>
@@ -603,7 +609,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/fs-people-fs-ss10.jpg" alt="FS&amp;PEOPLE 광전식 감지기 FS-SS10" width="619" height="640" loading="lazy" decoding="async">
           </div>
@@ -617,7 +623,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/fs-people-fs-lp-iso-detector.jpg" alt="FS&amp;PEOPLE 감지기타입 아이솔레이터 FS-LP-ISO" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -631,7 +637,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="detector">
           <div class="system-media">
             <img src="assets/fs-people-fs-lp-iso-repeater.jpg" alt="FS&amp;PEOPLE 중계기타입 아이솔레이터 FS-LP-ISO" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -645,7 +651,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="local">
           <div class="system-media">
             <img src="assets/fs-people-sprinkler-box.jpg" alt="FS&amp;PEOPLE 스프링클러 수동조작함" width="640" height="614" loading="lazy" decoding="async">
           </div>
@@ -659,7 +665,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="local">
           <div class="system-media">
             <img src="assets/fs-people-extinguish-box.jpg" alt="FS&amp;PEOPLE 소화약제 수동조작함" width="640" height="607" loading="lazy" decoding="async">
           </div>
@@ -673,7 +679,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="local">
           <div class="system-media">
             <img src="assets/fs-people-damper-box.jpg" alt="FS&amp;PEOPLE 댐퍼 수동조작함" width="640" height="631" loading="lazy" decoding="async">
           </div>
@@ -687,7 +693,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="local">
           <div class="system-media">
             <img src="assets/fs-people-sp-o16a.jpg" alt="FS&amp;PEOPLE 비상콘센트 SP-O16A" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -701,7 +707,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="local">
           <div class="system-media">
             <img src="assets/fs-people-sp-va10.jpg" alt="FS&amp;PEOPLE 시각경보기 SP-VA1.0" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -715,7 +721,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="local">
           <div class="system-media">
             <img src="assets/fs-people-sp-a10.jpg" alt="FS&amp;PEOPLE 시각경보장치용 동조장치 SP-A1.0" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -729,7 +735,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-c250bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 대형 양/단면 SP-E-C250B/S" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -743,7 +749,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-c200bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 중형 양/단면 SP-E-C200B/S" width="616" height="640" loading="lazy" decoding="async">
           </div>
@@ -757,7 +763,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-c130bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 소형 양/단면 SP-E-C130B/S" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -771,7 +777,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-w250s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 대형 단면 SP-E-W250S" width="427" height="640" loading="lazy" decoding="async">
           </div>
@@ -785,7 +791,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-w200s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 중형 단면 SP-E-W200S" width="427" height="640" loading="lazy" decoding="async">
           </div>
@@ -799,7 +805,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-w130s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 소형 단면 SP-E-W130S" width="427" height="640" loading="lazy" decoding="async">
           </div>
@@ -813,7 +819,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-w130s-c.jpg" alt="FS&amp;PEOPLE 복도통로유도등 벽부 소형 단면 SP-E-W130S-C" width="427" height="640" loading="lazy" decoding="async">
           </div>
@@ -827,7 +833,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-c200bs-l.jpg" alt="FS&amp;PEOPLE 거실통로유도등 천장형 중형 양/단면 SP-E-C200B/S-L" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -841,7 +847,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-w200s-l.jpg" alt="FS&amp;PEOPLE 거실통로유도등 벽부 중형 단면 SP-E-W200S-L" width="427" height="640" loading="lazy" decoding="async">
           </div>
@@ -855,7 +861,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-fs-e-w200s-s.jpg" alt="FS&amp;PEOPLE 계단통로유도등 벽부 중형 단면 FS-E-W200S-S" width="427" height="640" loading="lazy" decoding="async">
           </div>
@@ -869,7 +875,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-w130s-s.jpg" alt="FS&amp;PEOPLE 계단통로유도등 벽부 소형 단면 SP-E-W130S-S" width="427" height="640" loading="lazy" decoding="async">
           </div>
@@ -883,7 +889,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-w500s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 중형 와이드 SP-E-W500S" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -897,7 +903,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-fs-e-fr280s-p.jpg" alt="FS&amp;PEOPLE 바닥통로유도등 중형 FS-E-FR280S-P" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -911,7 +917,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-fs-e-fr130s-c.jpg" alt="FS&amp;PEOPLE 바닥통로유도등 소형 FS-E-FR130S-C" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -925,7 +931,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-mc250bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 음성점멸 대형 양/단면 SP-E-MC250B/S" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -939,7 +945,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-mc200bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 음성점멸 중형 양/단면 SP-E-MC200B/S" width="640" height="427" loading="lazy" decoding="async">
           </div>
@@ -953,7 +959,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-mw250s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 대형 SP-E-MW250S" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -967,7 +973,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-mw200s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 중형 SP-E-MW200S" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -981,7 +987,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-mw130s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 소형 SP-E-MW130S" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -995,7 +1001,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-mw500s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 와이드형 SP-E-MW500S" width="640" height="458" loading="lazy" decoding="async">
           </div>
@@ -1009,7 +1015,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-pw130s-c.jpg" alt="FS&amp;PEOPLE 입체형 벽부 소형 복도통로 유도등(2면용) SP-E-PW130S-C" width="640" height="563" loading="lazy" decoding="async">
           </div>
@@ -1023,7 +1029,7 @@
           </div>
         </article>
 
-        <article class="system-card">
+        <article class="system-card" data-cat="exit">
           <div class="system-media">
             <img src="assets/fs-people-sp-e-mpw130s.jpg" alt="FS&amp;PEOPLE 입체형 음성점멸 벽부 소형 피난구 유도등(3면) SP-E-MPW130S" width="640" height="563" loading="lazy" decoding="async">
           </div>
@@ -1036,6 +1042,10 @@
             </button>
           </div>
         </article>
+      </div>
+      <div class="works-foot">
+        <p class="works-count" id="systemsCount" aria-live="polite"></p>
+        <button class="btn btn-ghost btn-sm" id="systemsMore" type="button" aria-expanded="false" aria-controls="systemsBody">전체 보기</button>
       </div>
     </div>
   </section>

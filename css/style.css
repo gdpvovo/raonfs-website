@@ -373,6 +373,14 @@ button { font: inherit; cursor: pointer; }
 [data-cat="medical"],    [data-filter="medical"]    { --cat-bg: #FEE7F3; --cat-fg: #6F2B55; --cat-dot: #CD6CA6; }
 [data-cat="office"],     [data-filter="office"]     { --cat-bg: #ECEDFF; --cat-fg: #433C80; --cat-dot: #736BC9; }
 
+/* Systems filter — same palette discipline, hues chosen to stay clear of the
+   six works categories above and of the brand action blue. */
+[data-cat="panel"],      [data-filter="panel"]      { --cat-bg: #F6E8D3; --cat-fg: #6B4A1A; --cat-dot: #B8812E; }
+[data-cat="detector"],   [data-filter="detector"]   { --cat-bg: #DCF0F7; --cat-fg: #0F4C5C; --cat-dot: #1E8CA8; }
+[data-cat="freeze"],     [data-filter="freeze"]     { --cat-bg: #F3E8FB; --cat-fg: #5B21B6; --cat-dot: #9D5CE0; }
+[data-cat="exit"],       [data-filter="exit"]       { --cat-bg: #DCFBE7; --cat-fg: #065F32; --cat-dot: #15965A; }
+[data-cat="local"],      [data-filter="local"]      { --cat-bg: #F0F3D4; --cat-fg: #4B5320; --cat-dot: #7C8B2E; }
+
 /* ---------- Works ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--space-4); }
 .chip {
@@ -435,19 +443,8 @@ button { font: inherit; cursor: pointer; }
 #worksMore[hidden] { display: none; }
 
 /* ---------- Systems ---------- */
-.system-group-title {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin: var(--space-4) 0 var(--space-2);
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--color-border);
-}
-.system-group-title:first-of-type { margin-top: 0; }
 .systems { display: grid; gap: var(--space-3); }
+.system-card[hidden] { display: none; }
 .system-card {
   display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
   gap: var(--space-5); align-items: center;

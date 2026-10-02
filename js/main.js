@@ -116,78 +116,104 @@
     sections.forEach(function (s) { sectionObserver.observe(s); });
   }
 
-  /* ---- Business performance filter ---- */
-  var chips = document.querySelectorAll('.chip[data-filter]');
-  var rows = document.querySelectorAll('#worksBody tr');
-  var countEl = document.getElementById('worksCount');
-  var moreBtn = document.getElementById('worksMore');
+  /* ---- Filterable, collapsible lists (business performance + systems) ---- */
+  // Shared by #works (table rows) and #systems (cards): a radiogroup of
+  // chips narrows by data-cat/data-filter, and a collapse caps how many
+  // matches show before "전체 보기".
+  function initFilterList(opts) {
+    var chips = document.querySelectorAll(opts.chipSelector);
+    var items = document.querySelectorAll(opts.itemSelector);
+    var countEl = document.getElementById(opts.countId);
+    var moreBtn = document.getElementById(opts.moreId);
+    var unit = opts.unit;
+    var collapsedCount = opts.collapsedCount;
 
-  var COLLAPSED_ROWS = 12;
-  var currentFilter = 'all';
-  var expanded = false;
+    var currentFilter = 'all';
+    var expanded = false;
 
-  function render() {
-    var matched = 0;
-    var visible = 0;
+    function render() {
+      var matched = 0;
+      var visible = 0;
 
-    rows.forEach(function (row) {
-      var match = currentFilter === 'all' || row.dataset.cat === currentFilter;
-      delete row.dataset.fold;
-      if (!match) { row.hidden = true; return; }
-      matched++;
-      var withinLimit = expanded || matched <= COLLAPSED_ROWS;
-      row.hidden = !withinLimit;
-      // Marks rows hidden only by the collapse, so print can restore them
-      // without also resurrecting rows the active filter excluded.
-      if (!withinLimit) row.dataset.fold = '';
-      if (withinLimit) visible++;
-    });
+      items.forEach(function (item) {
+        var match = currentFilter === 'all' || item.dataset.cat === currentFilter;
+        delete item.dataset.fold;
+        if (!match) { item.hidden = true; return; }
+        matched++;
+        var withinLimit = expanded || matched <= collapsedCount;
+        item.hidden = !withinLimit;
+        // Marks items hidden only by the collapse, so print can restore them
+        // without also resurrecting items the active filter excluded.
+        if (!withinLimit) item.dataset.fold = '';
+        if (withinLimit) visible++;
+      });
 
-    if (countEl) {
-      countEl.textContent = matched === visible
-        ? '총 ' + matched + '건'
-        : matched + '건 중 ' + visible + '건 표시';
+      if (countEl) {
+        countEl.textContent = matched === visible
+          ? '총 ' + matched + unit
+          : matched + unit + ' 중 ' + visible + unit + ' 표시';
+      }
+
+      if (moreBtn) {
+        var needsToggle = matched > collapsedCount;
+        moreBtn.hidden = !needsToggle;
+        moreBtn.textContent = expanded ? '접기' : '전체 ' + matched + unit + ' 보기';
+        moreBtn.setAttribute('aria-expanded', String(expanded));
+      }
     }
+
+    chips.forEach(function (chip) {
+      chip.setAttribute('role', 'radio');
+      chip.setAttribute('aria-checked', chip.classList.contains('is-active') ? 'true' : 'false');
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-checked', 'false');
+        });
+        chip.classList.add('is-active');
+        chip.setAttribute('aria-checked', 'true');
+        currentFilter = chip.dataset.filter;
+        // Deliberately keeps `expanded`: silently re-folding a list the user
+        // had opened moved the page under them.
+        render();
+      });
+    });
 
     if (moreBtn) {
-      var needsToggle = matched > COLLAPSED_ROWS;
-      moreBtn.hidden = !needsToggle;
-      moreBtn.textContent = expanded ? '접기' : '전체 ' + matched + '건 보기';
-      moreBtn.setAttribute('aria-expanded', String(expanded));
+      moreBtn.addEventListener('click', function () {
+        expanded = !expanded;
+        render();
+        if (!expanded) {
+          document.getElementById(opts.sectionId).scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        }
+      });
     }
+
+    if (items.length) render();
   }
 
-  chips.forEach(function (chip) {
-    chip.setAttribute('role', 'radio');
-    chip.setAttribute('aria-checked', chip.classList.contains('is-active') ? 'true' : 'false');
-    chip.addEventListener('click', function () {
-      chips.forEach(function (c) {
-        c.classList.remove('is-active');
-        c.setAttribute('aria-checked', 'false');
-      });
-      chip.classList.add('is-active');
-      chip.setAttribute('aria-checked', 'true');
-      currentFilter = chip.dataset.filter;
-      // Deliberately keeps `expanded`: silently re-folding a list the user
-      // had opened moved the page under them.
-      render();
-    });
+  initFilterList({
+    chipSelector: '#works .chip[data-filter]',
+    itemSelector: '#worksBody tr',
+    countId: 'worksCount',
+    moreId: 'worksMore',
+    sectionId: 'works',
+    unit: '건',
+    collapsedCount: 12
   });
 
-  if (moreBtn) {
-    moreBtn.addEventListener('click', function () {
-      expanded = !expanded;
-      render();
-      if (!expanded) {
-        document.getElementById('works').scrollIntoView({
-          behavior: reduceMotion ? 'auto' : 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  }
-
-  if (rows.length) render();
+  initFilterList({
+    chipSelector: '#systems .chip[data-filter]',
+    itemSelector: '#systemsBody .system-card',
+    countId: 'systemsCount',
+    moreId: 'systemsMore',
+    sectionId: 'systems',
+    unit: '개',
+    collapsedCount: 6
+  });
 
   /* ---- Certificate lightbox ---- */
   var certTriggers = Array.prototype.slice.call(document.querySelectorAll('a.cert-open'));
