@@ -373,13 +373,13 @@ button { font: inherit; cursor: pointer; }
 [data-cat="medical"],    [data-filter="medical"]    { --cat-bg: #FEE7F3; --cat-fg: #6F2B55; --cat-dot: #CD6CA6; }
 [data-cat="office"],     [data-filter="office"]     { --cat-bg: #ECEDFF; --cat-fg: #433C80; --cat-dot: #736BC9; }
 
-/* Systems filter — same palette discipline, hues chosen to stay clear of the
-   six works categories above and of the brand action blue. */
-[data-cat="panel"],      [data-filter="panel"]      { --cat-bg: #F6E8D3; --cat-fg: #6B4A1A; --cat-dot: #B8812E; }
-[data-cat="detector"],   [data-filter="detector"]   { --cat-bg: #DCF0F7; --cat-fg: #0F4C5C; --cat-dot: #1E8CA8; }
-[data-cat="freeze"],     [data-filter="freeze"]     { --cat-bg: #F3E8FB; --cat-fg: #5B21B6; --cat-dot: #9D5CE0; }
-[data-cat="exit"],       [data-filter="exit"]       { --cat-bg: #DCFBE7; --cat-fg: #065F32; --cat-dot: #15965A; }
-[data-cat="local"],      [data-filter="local"]      { --cat-bg: #F0F3D4; --cat-fg: #4B5320; --cat-dot: #7C8B2E; }
+/* Systems filter — by supplier brand. Same palette discipline, hues chosen
+   to stay clear of the six works categories above and of the brand action blue. */
+[data-cat="simplex"],     [data-filter="simplex"]     { --cat-bg: #F6E8D3; --cat-fg: #6B4A1A; --cat-dot: #B8812E; }
+[data-cat="vesda"],       [data-filter="vesda"]       { --cat-bg: #DCF0F7; --cat-fg: #0F4C5C; --cat-dot: #1E8CA8; }
+[data-cat="metalheater"], [data-filter="metalheater"] { --cat-bg: #F3E8FB; --cat-fg: #5B21B6; --cat-dot: #9D5CE0; }
+[data-cat="sunghwaplus"], [data-filter="sunghwaplus"] { --cat-bg: #DCFBE7; --cat-fg: #065F32; --cat-dot: #15965A; }
+[data-cat="fspeople"],    [data-filter="fspeople"]    { --cat-bg: #F0F3D4; --cat-fg: #4B5320; --cat-dot: #7C8B2E; }
 
 /* ---------- Works ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--space-4); }
