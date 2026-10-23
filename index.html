@@ -35,7 +35,7 @@
 <!-- ?v= bumps the cached CSS/JS immediately on deploy — raise it (date+letter)
      whenever css/style.css or js/main.js changes, so visitors don't wait
      out the 24h cache in netlify.toml. -->
-<link rel="stylesheet" href="css/style.css?v=20261002c">
+<link rel="stylesheet" href="css/style.css?v=20261023a">
 
 <script type="application/ld+json">
 {
@@ -252,6 +252,13 @@
             <p>Notifier and Fire-Lite</p>
           </div>
         </li>
+        <li>
+          <div class="tl-date"><span class="tl-year">2026</span><span class="tl-month"></span></div>
+          <div class="tl-body">
+            <h3>메탈히터 대리점 등록</h3>
+            <p>동파방지설비</p>
+          </div>
+        </li>
       </ol>
     </div>
   </section>
@@ -385,21 +392,25 @@
     <div class="container">
       <header class="section-head reveal">
         <h2 class="section-title">취급 시스템 <span class="en">Systems</span></h2>
-        <p class="section-desc">검증된 글로벌·국내 제조사와 협력해 화재감지부터 수신반·유도등까지 취급하며, 브랜드별로 제품을 확인하실 수 있습니다.</p>
+        <p class="section-desc">자탐설비부터 공기흡입형 감지기, 동파방지설비, 유도등까지 분류별로 취급 제품을 확인하실 수 있습니다.</p>
       </header>
 
       <!-- radiogroup, not toggle buttons: the filters are mutually exclusive. -->
-      <div class="filters reveal" role="radiogroup" aria-label="취급 시스템 브랜드 필터">
-        <button class="chip is-active" data-filter="all">전체</button>
-        <button class="chip" data-filter="simplex">Simplex</button>
-        <button class="chip" data-filter="vesda">VESDA</button>
-        <button class="chip" data-filter="metalheater">메탈히터앤솔루션</button>
-        <button class="chip" data-filter="sunghwaplus">성화플러스</button>
-        <button class="chip" data-filter="fspeople">FS&amp;PEOPLE</button>
+      <div class="filters filters-tiered reveal" role="radiogroup" aria-label="취급 시스템 분류 필터">
+        <div class="filters-row">
+          <button class="chip is-active" data-filter="all">전체</button>
+          <button class="chip" data-filter="jatam">자탐설비 (Simplex)</button>
+          <button class="chip" data-filter="aspirating">공기흡입형감지기</button>
+          <button class="chip" data-filter="freeze">동파방지설비</button>
+        </div>
+        <div class="filters-row">
+          <button class="chip" data-filter="exit">유도등</button>
+          <button class="chip" data-filter="domestic">국내자탐</button>
+        </div>
       </div>
 
       <div class="systems" id="systemsBody">
-        <article class="system-card" data-cat="simplex">
+        <article class="system-card" data-cat="jatam">
           <div class="system-media">
             <img src="assets/simplex-4100es.jpg" alt="Simplex 4100ES 화재수신기 캐비닛" width="296" height="649" loading="lazy" decoding="async">
           </div>
@@ -418,7 +429,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="vesda">
+        <article class="system-card" data-cat="aspirating">
           <div class="system-media">
             <img src="assets/vesda.jpg" alt="VESDA 공기흡입형 연기 감지기 제품군" width="575" height="255" loading="lazy" decoding="async">
           </div>
@@ -437,121 +448,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="metalheater">
-          <div class="system-media">
-            <img src="assets/metalheater-fps-at200.jpg" alt="메탈히터 부착형 메탈히터 FPS-AT 시리즈" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>부착형 메탈히터<span class="model">메탈히터앤솔루션 · FPS-AT 시리즈</span></h3>
-            <p>배관 외벽에 부착해 감온형 발열체로 동파를 방지하는 기본형 메탈히터입니다. 전용 제어반에서 배관 구간별 M-BOX 단위로 실시간 예측 모니터링과 장기 운영 데이터 기록이 가능합니다.</p>
-            <ul class="system-list">
-              <li>200W/100W/70W/30W 용량별 라인업 (FPS-AT-200/100/60/mini)</li>
-              <li>알루미늄합금 하우징, IP68 방수등급</li>
-              <li>배관 구간별 M-BOX 단위 개별 관리 · 실시간 예측 모니터링</li>
-            </ul>
-            <button class="spec-open" type="button" data-spec="spec-fps-at200" data-title="부착형 메탈히터 제품 사양 · FPS-AT 시리즈">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="metalheater">
-          <div class="system-media">
-            <img src="assets/metalheater-fps-sat200.jpg" alt="메탈히터 부착형 메탈히터(실리콘) FPS-SAT 시리즈" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>부착형 메탈히터(실리콘)<span class="model">메탈히터앤솔루션 · FPS-SAT 시리즈</span></h3>
-            <p>하우징을 내열 실리콘으로 마감해 밀착성과 내열성을 높인 부착형 메탈히터입니다.</p>
-            <ul class="system-list">
-              <li>200W/100W/70W/30W 용량별 라인업 (FPS-SAT-200/100/60/mini)</li>
-              <li>알루미늄합금 + 실리콘(내열 250℃) 하우징, IPX7</li>
-              <li>특허 등록 제품 (특허출원번호 10-2019-0152959)</li>
-            </ul>
-            <button class="spec-open" type="button" data-spec="spec-fps-sat200" data-title="부착형 메탈히터(실리콘) 제품 사양 · FPS-SAT 시리즈">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="metalheater">
-          <div class="system-media">
-            <img src="assets/metalheater-fps-bat200.jpg" alt="메탈히터 부착형 메탈히터 일체형(실리콘) FPS-BAT 시리즈" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>부착형 메탈히터 일체형(실리콘)<span class="model">메탈히터앤솔루션 · FPS-BAT 시리즈</span></h3>
-            <p>전원 플러그와 온도조절기를 하나로 통합해 별도 제어반 없이 바로 꽂아 쓸 수 있는 일체형 메탈히터입니다.</p>
-            <ul class="system-list">
-              <li>200W/100W/70W/30W 용량별 라인업 (FPS-BAT-200/100/60/mini)</li>
-              <li>전원 플러그 일체형, 온도조절기 내장</li>
-              <li>IPX7, 알루미늄합금 + 실리콘 하우징</li>
-            </ul>
-            <button class="spec-open" type="button" data-spec="spec-fps-bat200" data-title="부착형 메탈히터 일체형(실리콘) 제품 사양 · FPS-BAT 시리즈">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="metalheater">
-          <div class="system-media">
-            <img src="assets/metalheater-fps-bsat60.jpg" alt="메탈히터 일체형 메탈히터 FPS-BSAT 시리즈" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>일체형 메탈히터<span class="model">메탈히터앤솔루션 · FPS-BSAT 시리즈</span></h3>
-            <p>소형 배관·동파 취약 구간에 적용하는 콤팩트형 일체형 메탈히터입니다.</p>
-            <ul class="system-list">
-              <li>70W/30W 용량 라인업 (FPS-BSAT-60/mini)</li>
-              <li>전원 플러그 일체형, IPX7</li>
-              <li>알루미늄합금 / 액체도장 하우징</li>
-            </ul>
-            <button class="spec-open" type="button" data-spec="spec-fps-bsat60" data-title="일체형 메탈히터 제품 사양 · FPS-BSAT 시리즈">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="metalheater">
-          <div class="system-media">
-            <img src="assets/metalheater-fps-it250.jpg" alt="메탈히터 수조형(삽입형) FPS-IT-250" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>수조형(삽입형) 메탈히터<span class="model">메탈히터앤솔루션 · FPS-IT-250</span></h3>
-            <p>소화수조 등 저수조 내부에 직접 삽입해 저장수 자체의 동결을 방지하는 삽입형 메탈히터입니다.</p>
-            <ul class="system-list">
-              <li>정격용량 250W, 보호등급 IP68</li>
-              <li>Nickel Chromium 발열체, 경질 아노다이징 하우징</li>
-              <li>히터 길이 500mm · 전원선 길이 1,200mm</li>
-            </ul>
-            <button class="spec-open" type="button" data-spec="spec-fps-it250" data-title="수조형(삽입형) 메탈히터 제품 사양 · FPS-IT-250">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="metalheater">
-          <div class="system-media">
-            <img src="assets/metalheater-fps-exdat300.jpg" alt="메탈히터 방폭형 FPS Exd AT 시리즈" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>방폭형 메탈히터<span class="model">메탈히터앤솔루션 · FPS Exd AT 시리즈</span></h3>
-            <p>가스·분진 폭발 위험이 있는 구역에 적용하는 내압방폭구조(Exd) 메탈히터입니다.</p>
-            <ul class="system-list">
-              <li>385W/128W 용량 라인업 (FPS Exd AT-300/mini)</li>
-              <li>내압방폭구조(Exd) · 기기분류 Ⅱ · 가스등급 B+H2 · 온도등급 T3</li>
-              <li>용량별 방폭 인증번호 보유</li>
-            </ul>
-            <button class="spec-open" type="button" data-spec="spec-fps-exdat300" data-title="방폭형 메탈히터 제품 사양 · FPS Exd AT 시리즈">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="sunghwaplus">
+        <article class="system-card" data-cat="aspirating">
           <div class="system-media">
             <img src="assets/bem-4pa.jpg" alt="성화플러스 BEST ASSD BEM-4PA 공기흡입형 감지기" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -570,7 +467,429 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="freeze">
+          <div class="system-media">
+            <img src="assets/metalheater-fps-at200.jpg" alt="메탈히터 부착형 메탈히터 FPS-AT 시리즈" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>부착형 메탈히터<span class="model">메탈히터앤솔루션 · FPS-AT 시리즈</span></h3>
+            <p>배관 외벽에 부착해 감온형 발열체로 동파를 방지하는 기본형 메탈히터입니다. 전용 제어반에서 배관 구간별 M-BOX 단위로 실시간 예측 모니터링과 장기 운영 데이터 기록이 가능합니다.</p>
+            <ul class="system-list">
+              <li>200W/100W/70W/30W 용량별 라인업 (FPS-AT-200/100/60/mini)</li>
+              <li>알루미늄합금 하우징, IP68 방수등급</li>
+              <li>배관 구간별 M-BOX 단위 개별 관리 · 실시간 예측 모니터링</li>
+            </ul>
+            <button class="spec-open" type="button" data-spec="spec-fps-at200" data-title="부착형 메탈히터 제품 사양 · FPS-AT 시리즈">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="freeze">
+          <div class="system-media">
+            <img src="assets/metalheater-fps-sat200.jpg" alt="메탈히터 부착형 메탈히터(실리콘) FPS-SAT 시리즈" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>부착형 메탈히터(실리콘)<span class="model">메탈히터앤솔루션 · FPS-SAT 시리즈</span></h3>
+            <p>하우징을 내열 실리콘으로 마감해 밀착성과 내열성을 높인 부착형 메탈히터입니다.</p>
+            <ul class="system-list">
+              <li>200W/100W/70W/30W 용량별 라인업 (FPS-SAT-200/100/60/mini)</li>
+              <li>알루미늄합금 + 실리콘(내열 250℃) 하우징, IPX7</li>
+              <li>특허 등록 제품 (특허출원번호 10-2019-0152959)</li>
+            </ul>
+            <button class="spec-open" type="button" data-spec="spec-fps-sat200" data-title="부착형 메탈히터(실리콘) 제품 사양 · FPS-SAT 시리즈">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="freeze">
+          <div class="system-media">
+            <img src="assets/metalheater-fps-bat200.jpg" alt="메탈히터 부착형 메탈히터 일체형(실리콘) FPS-BAT 시리즈" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>부착형 메탈히터 일체형(실리콘)<span class="model">메탈히터앤솔루션 · FPS-BAT 시리즈</span></h3>
+            <p>전원 플러그와 온도조절기를 하나로 통합해 별도 제어반 없이 바로 꽂아 쓸 수 있는 일체형 메탈히터입니다.</p>
+            <ul class="system-list">
+              <li>200W/100W/70W/30W 용량별 라인업 (FPS-BAT-200/100/60/mini)</li>
+              <li>전원 플러그 일체형, 온도조절기 내장</li>
+              <li>IPX7, 알루미늄합금 + 실리콘 하우징</li>
+            </ul>
+            <button class="spec-open" type="button" data-spec="spec-fps-bat200" data-title="부착형 메탈히터 일체형(실리콘) 제품 사양 · FPS-BAT 시리즈">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="freeze">
+          <div class="system-media">
+            <img src="assets/metalheater-fps-bsat60.jpg" alt="메탈히터 일체형 메탈히터 FPS-BSAT 시리즈" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>일체형 메탈히터<span class="model">메탈히터앤솔루션 · FPS-BSAT 시리즈</span></h3>
+            <p>소형 배관·동파 취약 구간에 적용하는 콤팩트형 일체형 메탈히터입니다.</p>
+            <ul class="system-list">
+              <li>70W/30W 용량 라인업 (FPS-BSAT-60/mini)</li>
+              <li>전원 플러그 일체형, IPX7</li>
+              <li>알루미늄합금 / 액체도장 하우징</li>
+            </ul>
+            <button class="spec-open" type="button" data-spec="spec-fps-bsat60" data-title="일체형 메탈히터 제품 사양 · FPS-BSAT 시리즈">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="freeze">
+          <div class="system-media">
+            <img src="assets/metalheater-fps-it250.jpg" alt="메탈히터 수조형(삽입형) FPS-IT-250" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>수조형(삽입형) 메탈히터<span class="model">메탈히터앤솔루션 · FPS-IT-250</span></h3>
+            <p>소화수조 등 저수조 내부에 직접 삽입해 저장수 자체의 동결을 방지하는 삽입형 메탈히터입니다.</p>
+            <ul class="system-list">
+              <li>정격용량 250W, 보호등급 IP68</li>
+              <li>Nickel Chromium 발열체, 경질 아노다이징 하우징</li>
+              <li>히터 길이 500mm · 전원선 길이 1,200mm</li>
+            </ul>
+            <button class="spec-open" type="button" data-spec="spec-fps-it250" data-title="수조형(삽입형) 메탈히터 제품 사양 · FPS-IT-250">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="freeze">
+          <div class="system-media">
+            <img src="assets/metalheater-fps-exdat300.jpg" alt="메탈히터 방폭형 FPS Exd AT 시리즈" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>방폭형 메탈히터<span class="model">메탈히터앤솔루션 · FPS Exd AT 시리즈</span></h3>
+            <p>가스·분진 폭발 위험이 있는 구역에 적용하는 내압방폭구조(Exd) 메탈히터입니다.</p>
+            <ul class="system-list">
+              <li>385W/128W 용량 라인업 (FPS Exd AT-300/mini)</li>
+              <li>내압방폭구조(Exd) · 기기분류 Ⅱ · 가스등급 B+H2 · 온도등급 T3</li>
+              <li>용량별 방폭 인증번호 보유</li>
+            </ul>
+            <button class="spec-open" type="button" data-spec="spec-fps-exdat300" data-title="방폭형 메탈히터 제품 사양 · FPS Exd AT 시리즈">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-c250bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 대형 양/단면 SP-E-C250B/S" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 천장형 대형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C250B/S</span></h3>
+            <p>출입구 위치를 알리는 피난구유도등으로, 천장형 대형(표시면 250×250mm) 양면/단면 겸용입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-c250bs" data-title="피난구유도등 천장형 대형 양/단면 제품 사양 · SP-E-C250B/S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-c200bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 중형 양/단면 SP-E-C200B/S" width="616" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 천장형 중형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C200B/S</span></h3>
+            <p>출입구 위치를 알리는 피난구유도등으로, 천장형 중형(표시면 200×200mm) 양면/단면 겸용입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-c200bs" data-title="피난구유도등 천장형 중형 양/단면 제품 사양 · SP-E-C200B/S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-c130bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 소형 양/단면 SP-E-C130B/S" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 천장형 소형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C130B/S</span></h3>
+            <p>출입구 위치를 알리는 피난구유도등으로, 천장형 소형(표시면 130×130mm) 양면/단면 겸용입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-c130bs" data-title="피난구유도등 천장형 소형 양/단면 제품 사양 · SP-E-C130B/S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-w250s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 대형 단면 SP-E-W250S" width="427" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부 대형 단면<span class="model">FS&amp;PEOPLE · SP-E-W250S</span></h3>
+            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 대형(표시면 250×250mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-w250s" data-title="피난구유도등 벽부 대형 단면 제품 사양 · SP-E-W250S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-w200s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 중형 단면 SP-E-W200S" width="427" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부 중형 단면<span class="model">FS&amp;PEOPLE · SP-E-W200S</span></h3>
+            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 중형(표시면 200×200mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-w200s" data-title="피난구유도등 벽부 중형 단면 제품 사양 · SP-E-W200S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-w130s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 소형 단면 SP-E-W130S" width="427" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부 소형 단면<span class="model">FS&amp;PEOPLE · SP-E-W130S</span></h3>
+            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 소형(표시면 130×130mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-w130s" data-title="피난구유도등 벽부 소형 단면 제품 사양 · SP-E-W130S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-w130s-c.jpg" alt="FS&amp;PEOPLE 복도통로유도등 벽부 소형 단면 SP-E-W130S-C" width="427" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>복도통로유도등 벽부 소형 단면<span class="model">FS&amp;PEOPLE · SP-E-W130S-C</span></h3>
+            <p>복도 피난 방향을 안내하는 통로유도등으로, 벽부착형 소형(표시면 130×130mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-w130s-c" data-title="복도통로유도등 벽부 소형 단면 제품 사양 · SP-E-W130S-C">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-c200bs-l.jpg" alt="FS&amp;PEOPLE 거실통로유도등 천장형 중형 양/단면 SP-E-C200B/S-L" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>거실통로유도등 천장형 중형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C200B/S-L</span></h3>
+            <p>거실·사무공간 등의 피난 방향을 안내하는 통로유도등으로, 천장형 중형(표시면 200×200mm) 양면/단면 겸용입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-c200bs-l" data-title="거실통로유도등 천장형 중형 양/단면 제품 사양 · SP-E-C200B/S-L">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-w200s-l.jpg" alt="FS&amp;PEOPLE 거실통로유도등 벽부 중형 단면 SP-E-W200S-L" width="427" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>거실통로유도등 벽부 중형 단면<span class="model">FS&amp;PEOPLE · SP-E-W200S-L</span></h3>
+            <p>거실·사무공간 등의 피난 방향을 안내하는 통로유도등으로, 벽부착형 중형(표시면 200×200mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-w200s-l" data-title="거실통로유도등 벽부 중형 단면 제품 사양 · SP-E-W200S-L">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-fs-e-w200s-s.jpg" alt="FS&amp;PEOPLE 계단통로유도등 벽부 중형 단면 FS-E-W200S-S" width="427" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>계단통로유도등 벽부 중형 단면<span class="model">FS&amp;PEOPLE · FS-E-W200S-S</span></h3>
+            <p>계단실의 피난 방향을 안내하는 통로유도등으로, 벽부착형 중형(표시면 200×200mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-fs-e-w200s-s" data-title="계단통로유도등 벽부 중형 단면 제품 사양 · FS-E-W200S-S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-w130s-s.jpg" alt="FS&amp;PEOPLE 계단통로유도등 벽부 소형 단면 SP-E-W130S-S" width="427" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>계단통로유도등 벽부 소형 단면<span class="model">FS&amp;PEOPLE · SP-E-W130S-S</span></h3>
+            <p>계단실의 피난 방향을 안내하는 통로유도등으로, 벽부착형 소형(표시면 130×130mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-w130s-s" data-title="계단통로유도등 벽부 소형 단면 제품 사양 · SP-E-W130S-S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-w500s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 중형 와이드 SP-E-W500S" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부착형 중형 와이드<span class="model">FS&amp;PEOPLE · SP-E-W500S</span></h3>
+            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 와이드(표시면 500×140mm) 단면입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-w500s" data-title="피난구유도등 벽부착형 중형 와이드 제품 사양 · SP-E-W500S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-fs-e-fr280s-p.jpg" alt="FS&amp;PEOPLE 바닥통로유도등 중형 FS-E-FR280S-P" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>바닥통로유도등 중형<span class="model">FS&amp;PEOPLE · FS-E-FR280S-P</span></h3>
+            <p>바닥에 매립해 저시야 상황에서도 피난 방향을 안내하는 바닥통로유도등 중형(표시면 280×135mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-fs-e-fr280s-p" data-title="바닥통로유도등 중형 제품 사양 · FS-E-FR280S-P">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-fs-e-fr130s-c.jpg" alt="FS&amp;PEOPLE 바닥통로유도등 소형 FS-E-FR130S-C" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>바닥통로유도등 소형<span class="model">FS&amp;PEOPLE · FS-E-FR130S-C</span></h3>
+            <p>바닥에 매립해 저시야 상황에서도 피난 방향을 안내하는 바닥통로유도등 소형(표시면 136×136mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-fs-e-fr130s-c" data-title="바닥통로유도등 소형 제품 사양 · FS-E-FR130S-C">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-mc250bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 음성점멸 대형 양/단면 SP-E-MC250B/S" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 천장형 음성점멸 대형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-MC250B/S</span></h3>
+            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 천장형 대형(표시면 250×250mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-mc250bs" data-title="피난구유도등 천장형 음성점멸 대형 양/단면 제품 사양 · SP-E-MC250B/S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-mc200bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 음성점멸 중형 양/단면 SP-E-MC200B/S" width="640" height="427" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 천장형 음성점멸 중형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-MC200B/S</span></h3>
+            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 천장형 중형(표시면 200×200mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-mc200bs" data-title="피난구유도등 천장형 음성점멸 중형 양/단면 제품 사양 · SP-E-MC200B/S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-mw250s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 대형 SP-E-MW250S" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부착형 음성점멸 대형<span class="model">FS&amp;PEOPLE · SP-E-MW250S</span></h3>
+            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 대형(표시면 250×250mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-mw250s" data-title="피난구유도등 벽부착형 음성점멸 대형 제품 사양 · SP-E-MW250S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-mw200s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 중형 SP-E-MW200S" width="640" height="564" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부착형 음성점멸 중형<span class="model">FS&amp;PEOPLE · SP-E-MW200S</span></h3>
+            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 중형(표시면 200×200mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-mw200s" data-title="피난구유도등 벽부착형 음성점멸 중형 제품 사양 · SP-E-MW200S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-mw130s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 소형 SP-E-MW130S" width="640" height="640" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부착형 음성점멸 소형<span class="model">FS&amp;PEOPLE · SP-E-MW130S</span></h3>
+            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 소형(표시면 130×130mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-mw130s" data-title="피난구유도등 벽부착형 음성점멸 소형 제품 사양 · SP-E-MW130S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-mw500s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 와이드형 SP-E-MW500S" width="640" height="458" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>피난구유도등 벽부착형 음성점멸 와이드형<span class="model">FS&amp;PEOPLE · SP-E-MW500S</span></h3>
+            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 와이드(표시면 500×140mm)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-mw500s" data-title="피난구유도등 벽부착형 음성점멸 와이드형 제품 사양 · SP-E-MW500S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-pw130s-c.jpg" alt="FS&amp;PEOPLE 입체형 벽부 소형 복도통로 유도등(2면용) SP-E-PW130S-C" width="640" height="563" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>입체형 벽부 소형 복도통로 유도등(2면용)<span class="model">FS&amp;PEOPLE · SP-E-PW130S-C</span></h3>
+            <p>양쪽 복도에서 동시에 보이도록 2면에 표시면을 둔 입체형 복도통로유도등(소형)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-pw130s-c" data-title="입체형 벽부 소형 복도통로 유도등(2면용) 제품 사양 · SP-E-PW130S-C">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="exit">
+          <div class="system-media">
+            <img src="assets/fs-people-sp-e-mpw130s.jpg" alt="FS&amp;PEOPLE 입체형 음성점멸 벽부 소형 피난구 유도등(3면) SP-E-MPW130S" width="640" height="563" loading="lazy" decoding="async">
+          </div>
+          <div class="system-text">
+            <h3>입체형 음성점멸 벽부 소형 피난구 유도등(3면)<span class="model">FS&amp;PEOPLE · SP-E-MPW130S</span></h3>
+            <p>3개 면에서 동시에 보이고 음성안내·점멸로 피난을 유도하는 입체형 피난구유도등(소형)입니다.</p>
+            <button class="spec-open" type="button" data-spec="spec-sp-e-mpw130s" data-title="입체형 음성점멸 벽부 소형 피난구 유도등(3면) 제품 사양 · SP-E-MPW130S">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              제품 사양 자세히 보기
+            </button>
+          </div>
+        </article>
+
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-gr10-1000.jpg" alt="FS&amp;PEOPLE 화재수신기 SP-GR1.0_1000" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -589,7 +908,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-rs10.jpg" alt="FS&amp;PEOPLE 중계반 SP-RS1.0" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -608,7 +927,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-r10-4l-4circuit.jpg" alt="FS&amp;PEOPLE 중계기 SP-R1.0-4L" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -631,7 +950,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-ps15a.jpg" alt="FS&amp;PEOPLE 비상전원반 SP-PS15A" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -650,7 +969,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-ass10.jpg" alt="FS&amp;PEOPLE 아날로그 연기식감지기 SP-ASS1.0" width="640" height="630" loading="lazy" decoding="async">
           </div>
@@ -664,7 +983,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-ash10.jpg" alt="FS&amp;PEOPLE 아날로그 열식감지기 SP-ASH1.0" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -678,7 +997,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-fs-shr10.jpg" alt="FS&amp;PEOPLE 차동식 감지기 FS-SHR10" width="640" height="588" loading="lazy" decoding="async">
           </div>
@@ -692,7 +1011,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-fs-shf10.jpg" alt="FS&amp;PEOPLE 정온식 감지기 FS-SHF10" width="640" height="635" loading="lazy" decoding="async">
           </div>
@@ -706,7 +1025,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-fs-ss10.jpg" alt="FS&amp;PEOPLE 광전식 감지기 FS-SS10" width="619" height="640" loading="lazy" decoding="async">
           </div>
@@ -720,7 +1039,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-fs-lp-iso-detector.jpg" alt="FS&amp;PEOPLE 감지기타입 아이솔레이터 FS-LP-ISO" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -734,7 +1053,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-fs-lp-iso-repeater.jpg" alt="FS&amp;PEOPLE 중계기타입 아이솔레이터 FS-LP-ISO" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -748,7 +1067,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sprinkler-box.jpg" alt="FS&amp;PEOPLE 스프링클러 수동조작함" width="640" height="614" loading="lazy" decoding="async">
           </div>
@@ -762,7 +1081,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-extinguish-box.jpg" alt="FS&amp;PEOPLE 소화약제 수동조작함" width="640" height="607" loading="lazy" decoding="async">
           </div>
@@ -776,7 +1095,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-damper-box.jpg" alt="FS&amp;PEOPLE 댐퍼 수동조작함" width="640" height="631" loading="lazy" decoding="async">
           </div>
@@ -790,7 +1109,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-o16a.jpg" alt="FS&amp;PEOPLE 비상콘센트 SP-O16A" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -804,7 +1123,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-va10.jpg" alt="FS&amp;PEOPLE 시각경보기 SP-VA1.0" width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -818,7 +1137,7 @@
           </div>
         </article>
 
-        <article class="system-card" data-cat="fspeople">
+        <article class="system-card" data-cat="domestic">
           <div class="system-media">
             <img src="assets/fs-people-sp-a10.jpg" alt="FS&amp;PEOPLE 시각경보장치용 동조장치 SP-A1.0" width="640" height="564" loading="lazy" decoding="async">
           </div>
@@ -826,314 +1145,6 @@
             <h3>시각경보장치용 동조장치<span class="model">FS&amp;PEOPLE · SP-A1.0</span></h3>
             <p>여러 대의 시각경보기가 동시에 점멸하도록 신호를 동기화하는 장치입니다.</p>
             <button class="spec-open" type="button" data-spec="spec-sp-a10" data-title="시각경보장치용 동조장치 제품 사양 · SP-A1.0">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-c250bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 대형 양/단면 SP-E-C250B/S" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 천장형 대형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C250B/S</span></h3>
-            <p>출입구 위치를 알리는 피난구유도등으로, 천장형 대형(표시면 250×250mm) 양면/단면 겸용입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-c250bs" data-title="피난구유도등 천장형 대형 양/단면 제품 사양 · SP-E-C250B/S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-c200bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 중형 양/단면 SP-E-C200B/S" width="616" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 천장형 중형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C200B/S</span></h3>
-            <p>출입구 위치를 알리는 피난구유도등으로, 천장형 중형(표시면 200×200mm) 양면/단면 겸용입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-c200bs" data-title="피난구유도등 천장형 중형 양/단면 제품 사양 · SP-E-C200B/S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-c130bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 소형 양/단면 SP-E-C130B/S" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 천장형 소형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C130B/S</span></h3>
-            <p>출입구 위치를 알리는 피난구유도등으로, 천장형 소형(표시면 130×130mm) 양면/단면 겸용입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-c130bs" data-title="피난구유도등 천장형 소형 양/단면 제품 사양 · SP-E-C130B/S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-w250s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 대형 단면 SP-E-W250S" width="427" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부 대형 단면<span class="model">FS&amp;PEOPLE · SP-E-W250S</span></h3>
-            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 대형(표시면 250×250mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-w250s" data-title="피난구유도등 벽부 대형 단면 제품 사양 · SP-E-W250S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-w200s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 중형 단면 SP-E-W200S" width="427" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부 중형 단면<span class="model">FS&amp;PEOPLE · SP-E-W200S</span></h3>
-            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 중형(표시면 200×200mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-w200s" data-title="피난구유도등 벽부 중형 단면 제품 사양 · SP-E-W200S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-w130s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부 소형 단면 SP-E-W130S" width="427" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부 소형 단면<span class="model">FS&amp;PEOPLE · SP-E-W130S</span></h3>
-            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 소형(표시면 130×130mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-w130s" data-title="피난구유도등 벽부 소형 단면 제품 사양 · SP-E-W130S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-w130s-c.jpg" alt="FS&amp;PEOPLE 복도통로유도등 벽부 소형 단면 SP-E-W130S-C" width="427" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>복도통로유도등 벽부 소형 단면<span class="model">FS&amp;PEOPLE · SP-E-W130S-C</span></h3>
-            <p>복도 피난 방향을 안내하는 통로유도등으로, 벽부착형 소형(표시면 130×130mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-w130s-c" data-title="복도통로유도등 벽부 소형 단면 제품 사양 · SP-E-W130S-C">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-c200bs-l.jpg" alt="FS&amp;PEOPLE 거실통로유도등 천장형 중형 양/단면 SP-E-C200B/S-L" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>거실통로유도등 천장형 중형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-C200B/S-L</span></h3>
-            <p>거실·사무공간 등의 피난 방향을 안내하는 통로유도등으로, 천장형 중형(표시면 200×200mm) 양면/단면 겸용입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-c200bs-l" data-title="거실통로유도등 천장형 중형 양/단면 제품 사양 · SP-E-C200B/S-L">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-w200s-l.jpg" alt="FS&amp;PEOPLE 거실통로유도등 벽부 중형 단면 SP-E-W200S-L" width="427" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>거실통로유도등 벽부 중형 단면<span class="model">FS&amp;PEOPLE · SP-E-W200S-L</span></h3>
-            <p>거실·사무공간 등의 피난 방향을 안내하는 통로유도등으로, 벽부착형 중형(표시면 200×200mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-w200s-l" data-title="거실통로유도등 벽부 중형 단면 제품 사양 · SP-E-W200S-L">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-fs-e-w200s-s.jpg" alt="FS&amp;PEOPLE 계단통로유도등 벽부 중형 단면 FS-E-W200S-S" width="427" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>계단통로유도등 벽부 중형 단면<span class="model">FS&amp;PEOPLE · FS-E-W200S-S</span></h3>
-            <p>계단실의 피난 방향을 안내하는 통로유도등으로, 벽부착형 중형(표시면 200×200mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-fs-e-w200s-s" data-title="계단통로유도등 벽부 중형 단면 제품 사양 · FS-E-W200S-S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-w130s-s.jpg" alt="FS&amp;PEOPLE 계단통로유도등 벽부 소형 단면 SP-E-W130S-S" width="427" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>계단통로유도등 벽부 소형 단면<span class="model">FS&amp;PEOPLE · SP-E-W130S-S</span></h3>
-            <p>계단실의 피난 방향을 안내하는 통로유도등으로, 벽부착형 소형(표시면 130×130mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-w130s-s" data-title="계단통로유도등 벽부 소형 단면 제품 사양 · SP-E-W130S-S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-w500s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 중형 와이드 SP-E-W500S" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부착형 중형 와이드<span class="model">FS&amp;PEOPLE · SP-E-W500S</span></h3>
-            <p>출입구 위치를 알리는 피난구유도등으로, 벽부착형 와이드(표시면 500×140mm) 단면입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-w500s" data-title="피난구유도등 벽부착형 중형 와이드 제품 사양 · SP-E-W500S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-fs-e-fr280s-p.jpg" alt="FS&amp;PEOPLE 바닥통로유도등 중형 FS-E-FR280S-P" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>바닥통로유도등 중형<span class="model">FS&amp;PEOPLE · FS-E-FR280S-P</span></h3>
-            <p>바닥에 매립해 저시야 상황에서도 피난 방향을 안내하는 바닥통로유도등 중형(표시면 280×135mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-fs-e-fr280s-p" data-title="바닥통로유도등 중형 제품 사양 · FS-E-FR280S-P">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-fs-e-fr130s-c.jpg" alt="FS&amp;PEOPLE 바닥통로유도등 소형 FS-E-FR130S-C" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>바닥통로유도등 소형<span class="model">FS&amp;PEOPLE · FS-E-FR130S-C</span></h3>
-            <p>바닥에 매립해 저시야 상황에서도 피난 방향을 안내하는 바닥통로유도등 소형(표시면 136×136mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-fs-e-fr130s-c" data-title="바닥통로유도등 소형 제품 사양 · FS-E-FR130S-C">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-mc250bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 음성점멸 대형 양/단면 SP-E-MC250B/S" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 천장형 음성점멸 대형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-MC250B/S</span></h3>
-            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 천장형 대형(표시면 250×250mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-mc250bs" data-title="피난구유도등 천장형 음성점멸 대형 양/단면 제품 사양 · SP-E-MC250B/S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-mc200bs.jpg" alt="FS&amp;PEOPLE 피난구유도등 천장형 음성점멸 중형 양/단면 SP-E-MC200B/S" width="640" height="427" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 천장형 음성점멸 중형 양/단면<span class="model">FS&amp;PEOPLE · SP-E-MC200B/S</span></h3>
-            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 천장형 중형(표시면 200×200mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-mc200bs" data-title="피난구유도등 천장형 음성점멸 중형 양/단면 제품 사양 · SP-E-MC200B/S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-mw250s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 대형 SP-E-MW250S" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부착형 음성점멸 대형<span class="model">FS&amp;PEOPLE · SP-E-MW250S</span></h3>
-            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 대형(표시면 250×250mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-mw250s" data-title="피난구유도등 벽부착형 음성점멸 대형 제품 사양 · SP-E-MW250S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-mw200s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 중형 SP-E-MW200S" width="640" height="564" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부착형 음성점멸 중형<span class="model">FS&amp;PEOPLE · SP-E-MW200S</span></h3>
-            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 중형(표시면 200×200mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-mw200s" data-title="피난구유도등 벽부착형 음성점멸 중형 제품 사양 · SP-E-MW200S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-mw130s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 소형 SP-E-MW130S" width="640" height="640" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부착형 음성점멸 소형<span class="model">FS&amp;PEOPLE · SP-E-MW130S</span></h3>
-            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 소형(표시면 130×130mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-mw130s" data-title="피난구유도등 벽부착형 음성점멸 소형 제품 사양 · SP-E-MW130S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-mw500s.jpg" alt="FS&amp;PEOPLE 피난구유도등 벽부착형 음성점멸 와이드형 SP-E-MW500S" width="640" height="458" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>피난구유도등 벽부착형 음성점멸 와이드형<span class="model">FS&amp;PEOPLE · SP-E-MW500S</span></h3>
-            <p>화재 시 음성안내와 점멸로 피난을 유도하는 음성점멸형 피난구유도등으로, 벽부착형 와이드(표시면 500×140mm)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-mw500s" data-title="피난구유도등 벽부착형 음성점멸 와이드형 제품 사양 · SP-E-MW500S">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-pw130s-c.jpg" alt="FS&amp;PEOPLE 입체형 벽부 소형 복도통로 유도등(2면용) SP-E-PW130S-C" width="640" height="563" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>입체형 벽부 소형 복도통로 유도등(2면용)<span class="model">FS&amp;PEOPLE · SP-E-PW130S-C</span></h3>
-            <p>양쪽 복도에서 동시에 보이도록 2면에 표시면을 둔 입체형 복도통로유도등(소형)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-pw130s-c" data-title="입체형 벽부 소형 복도통로 유도등(2면용) 제품 사양 · SP-E-PW130S-C">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-              제품 사양 자세히 보기
-            </button>
-          </div>
-        </article>
-
-        <article class="system-card" data-cat="fspeople">
-          <div class="system-media">
-            <img src="assets/fs-people-sp-e-mpw130s.jpg" alt="FS&amp;PEOPLE 입체형 음성점멸 벽부 소형 피난구 유도등(3면) SP-E-MPW130S" width="640" height="563" loading="lazy" decoding="async">
-          </div>
-          <div class="system-text">
-            <h3>입체형 음성점멸 벽부 소형 피난구 유도등(3면)<span class="model">FS&amp;PEOPLE · SP-E-MPW130S</span></h3>
-            <p>3개 면에서 동시에 보이고 음성안내·점멸로 피난을 유도하는 입체형 피난구유도등(소형)입니다.</p>
-            <button class="spec-open" type="button" data-spec="spec-sp-e-mpw130s" data-title="입체형 음성점멸 벽부 소형 피난구 유도등(3면) 제품 사양 · SP-E-MPW130S">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
               제품 사양 자세히 보기
             </button>
