@@ -351,6 +351,7 @@
       specBody.innerHTML = '';
       specBody.appendChild(template.content.cloneNode(true));
       specTitle.textContent = trigger.dataset.title || '제품 사양';
+      specPanel.classList.toggle('lightbox-panel-wide', template.hasAttribute('data-wide'));
 
       specLightbox.hidden = false;
       setSpecOutsideInert(true);
